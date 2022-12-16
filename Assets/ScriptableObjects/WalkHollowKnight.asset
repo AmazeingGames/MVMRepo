@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fecfa1390002e4429fd428e4e96a261, type: 3}
+  m_Name: WalkHollowKnight
+  m_EditorClassIdentifier: 
+  moveSpeed: 9
+  acceleration: 9
+  deceleration: 9
+  velocityPower: 1.2
+  friction: 0.2
+  jumpRememberTime: 0.1
+  groundRememberTime: 0.15
