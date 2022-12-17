@@ -1,15 +1,11 @@
  using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "States/Character/Walk")]
 public class WalkState : State<CharacterManager>
 {
-    WalkState() : base(EStateType.Walk)
-    {
-       
-    }
-
     [SerializeField] float moveSpeed;
     [SerializeField] float acceleration;
     [SerializeField] float deceleration;
@@ -21,6 +17,7 @@ public class WalkState : State<CharacterManager>
     //Hang Time
     [SerializeField] float groundRememberTime;
 
+    bool pressedJump;
     float jumpRemember;
     float groundRemember;
 
@@ -48,8 +45,7 @@ public class WalkState : State<CharacterManager>
 
         if (Input.GetButtonDown("Jump"))
         {
-            //Debug.Log("pressed jump");
-            jumpRemember = jumpRememberTime;
+            pressedJump = true;
         }
     }
 
@@ -61,6 +57,12 @@ public class WalkState : State<CharacterManager>
         if (groundCheck.IsGrounded())
         {
             groundRemember = groundRememberTime;
+        }
+
+        if (pressedJump)
+        {
+            pressedJump = false;
+            jumpRemember = jumpRememberTime;
         }
     }
 
@@ -102,6 +104,10 @@ public class WalkState : State<CharacterManager>
             runner.SetState(typeof(JumpState));
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            runner.SetState(typeof(EntryAttack));
+        }
     }
 
     public override void Exit()

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "States/Character/Jump")]
 public class JumpState : State<CharacterManager>
 {
-    JumpState() : base(EStateType.Jump) { }
+    JumpState() : base() { }
 
     [Header("Jumping/Falling")]
     //[SerializeField] float jumpRememberTime;
@@ -80,6 +80,12 @@ public class JumpState : State<CharacterManager>
             hasLeftTheGround = true;
         }
 
+        if (pressedJump)
+        {
+            pressedJump = false;
+            jumpRemember = jumpBufferTime;
+        }
+
         if (releaseJump)
         {
             releaseJump = false;
@@ -105,13 +111,7 @@ public class JumpState : State<CharacterManager>
             }
         }
 
-        if (pressedJump)
-        {
-            pressedJump = false;
-            jumpRemember = jumpBufferTime;
-        }
-
-        Debug.Log($"Is JumpRemember greater than 0: {jumpRemember > 0}");
+        //Debug.Log($"Is JumpRemember greater than 0: {jumpRemember > 0}");
         jumpRemember -= Time.deltaTime;
         //Debug.Log($"JumpRemember: {jumpRemember}");
 

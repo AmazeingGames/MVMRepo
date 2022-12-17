@@ -7,11 +7,6 @@ public abstract class State<T> : ScriptableObject where T : MonoBehaviour
     public enum EStateType { Walk, Jump, Combat }
     public readonly EStateType type;
 
-    public State(EStateType stateType)
-    {
-        type = stateType;
-    }
-
     protected T runner;
 
     public virtual void Enter(T parent)

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9170871115313550882}
   - component: {fileID: 9170871115313550881}
   m_Layer: 0
-  m_Name: Melee HitBox
+  m_Name: MeleeHitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,8 +135,6 @@ GameObject:
   - component: {fileID: 9170871116347733368}
   - component: {fileID: 9170871116347733369}
   - component: {fileID: 9170871116347733367}
-  - component: {fileID: 9170871116347733362}
-  - component: {fileID: 9170871116347733361}
   - component: {fileID: 7159990790429876081}
   - component: {fileID: 6851801492885154332}
   m_Layer: 0
@@ -162,7 +160,7 @@ Transform:
   - {fileID: 9170871115400269215}
   - {fileID: 9170871115792041012}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &9170871116347733364
 Animator:
@@ -270,7 +268,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.072336674, y: 1.7106543}
+  m_Offset: {x: 0.024480104, y: 1.5578812}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -281,7 +279,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7552204, y: 2.1081219}
+  m_Size: {x: 0.6595073, y: 2.413668}
   m_EdgeRadius: 0
 --- !u!58 &9170871116347733369
 CircleCollider2D:
@@ -313,33 +311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 1
   knockbackDistance: 0
---- !u!114 &9170871116347733362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9170871116347733360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04b49266367c5647825fcc1cb07d78c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitbox: {fileID: 9170871115313550881}
-  Hiteffect: {fileID: 0}
---- !u!114 &9170871116347733361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9170871116347733360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b696dab987c9f5488fc55cb3b2bab1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  customName: Combat
 --- !u!114 &7159990790429876081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +326,7 @@ MonoBehaviour:
   states:
   - {fileID: 11400000, guid: e3b319d48df550b45b167a36c7984774, type: 2}
   - {fileID: 11400000, guid: 9d004cf604d9cc64880764305881f81a, type: 2}
+  - {fileID: 11400000, guid: 3471247453738a047bcc0e4e5abf2453, type: 2}
 --- !u!114 &6851801492885154332
 MonoBehaviour:
   m_ObjectHideFlags: 0
