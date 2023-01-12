@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class State<T> : ScriptableObject where T : MonoBehaviour
 {
-    public enum EStateType { Walk, Jump, Combat }
-    public readonly EStateType type;
+    public enum EStateType { Walk, Jump, Combat, LedgeHold, LedgeClimb }
 
     protected T runner;
 

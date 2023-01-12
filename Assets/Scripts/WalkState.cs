@@ -11,6 +11,7 @@ public class WalkState : State<CharacterManager>
     [SerializeField] float deceleration;
     [SerializeField] float velocityPower;
     [SerializeField] float friction;
+    [SerializeField] float runAnimationVelocityCutOff;
 
     //Jump Buffer
     [SerializeField] float jumpRememberTime;
@@ -26,6 +27,7 @@ public class WalkState : State<CharacterManager>
     Rigidbody2D rigidbody2D;
     GroundCheck groundCheck;
     Animator animator;
+    PlayerGeneral playerGeneral;
 
     public override void Enter(CharacterManager parent)
     {
@@ -37,6 +39,8 @@ public class WalkState : State<CharacterManager>
             rigidbody2D = parent.GetComponent<Rigidbody2D>();
         if (animator == null)
             animator = parent.GetComponent<Animator>();
+        if (playerGeneral == null)
+            playerGeneral = parent.GetComponent<PlayerGeneral>();
     }
 
     public override void CaptureInput()
@@ -57,6 +61,20 @@ public class WalkState : State<CharacterManager>
         if (groundCheck.IsGrounded())
         {
             groundRemember = groundRememberTime;
+
+            if (Mathf.Abs(moveInput) > 0)
+            {
+                animator.CrossFade(PlayerGeneral.Run, 0);
+            }
+            //Stops run animation only if velocity is less than a specified value (.1 - .5) and player is not pressing run 
+            else if(Mathf.Abs(rigidbody2D.velocity.x) < runAnimationVelocityCutOff)
+            {
+                animator.CrossFade(PlayerGeneral.Idle, 0);
+            }
+        }
+        else
+        {
+            animator.CrossFade(PlayerGeneral.Jump, 0);
         }
 
         if (pressedJump)
@@ -107,6 +125,11 @@ public class WalkState : State<CharacterManager>
         if (Input.GetMouseButtonDown(0))
         {
             runner.SetState(typeof(EntryAttack));
+        }
+
+        if (groundRemember <= 0 && groundCheck.IsFacingLedge() && playerGeneral.ledgeGrabTimer <= 0)
+        {
+            runner.SetState(typeof(LedgeHold));
         }
     }
 

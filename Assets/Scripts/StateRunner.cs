@@ -16,7 +16,7 @@ namespace StateMachine
 
         protected virtual void Awake()
         {
-            Debug.Log("Ran Awake");
+            //Debug.Log("Ran Awake");
 
             SetState(states[0].GetType());
         }
@@ -36,7 +36,7 @@ namespace StateMachine
         {
             if (!ranUpdate)
             {
-                Debug.Log("Ran Update");
+                //Debug.Log("Ran Update");
                 ranUpdate = true;
             }
 
@@ -49,7 +49,7 @@ namespace StateMachine
         {
             if (!ranFixedUpdate)
             {
-                Debug.Log("Ran Fixed Update");
+                //Debug.Log("Ran Fixed Update");
                 ranFixedUpdate = true;
             }
 

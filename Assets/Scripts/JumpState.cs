@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "States/Character/Jump")]
@@ -27,22 +29,25 @@ public class JumpState : State<CharacterManager>
     [SerializeField] float hangtimeAccelerationMultiplier;
     [SerializeField] float hangtimeMaxSpeedMultiplier;
 
-    GroundCheck groundCheck;
-    Rigidbody2D rigidbody2D;
-
     bool hasLeftTheGround;
     bool releaseJump;
     bool inHangTime;
 
+    bool isFalling => rigidbody2D.velocity.y < 0;
+
     bool pressedJump; 
     float jumpRemember;
-
 
     bool AtJumpApex => Mathf.Abs(rigidbody2D.velocity.y) < hangtimeSpeedThreshold;
 
     float rigidbodyGravity;
 
     float moveInput;
+
+    GroundCheck groundCheck;
+    Rigidbody2D rigidbody2D;
+    PlayerGeneral playerGeneral;
+    Animator animator;
 
     public override void Enter(CharacterManager parent)
     {
@@ -52,6 +57,29 @@ public class JumpState : State<CharacterManager>
             groundCheck = parent.GetComponentInChildren<GroundCheck>();
         if (rigidbody2D == null)
             rigidbody2D = parent.GetComponent<Rigidbody2D>();
+        if (playerGeneral == null)
+            playerGeneral = parent.GetComponent<PlayerGeneral>();
+        if(animator == null)
+            animator = parent.GetComponent<Animator>();
+
+        //animator.CrossFade(PlayerGeneral.Jump, 0);
+
+        var currentClipInfo = animator.GetCurrentAnimatorClipInfo(0);
+
+        if (currentClipInfo != null && currentClipInfo.Length >= 1)
+        {
+            string currentClipName = currentClipInfo[0].clip.name;
+
+            if (currentClipName != "Jump")
+            {
+                animator.CrossFade(PlayerGeneral.Jump, 0);
+            }   
+        }
+        else
+        {
+            animator.CrossFade(PlayerGeneral.Jump, 0);
+        }
+
 
         jumpRemember = 0;
         hasLeftTheGround = false;
@@ -75,6 +103,8 @@ public class JumpState : State<CharacterManager>
     }
     public override void Update()
     {
+        jumpRemember -= Time.deltaTime;
+
         if (!groundCheck.IsGrounded())
         {
             hasLeftTheGround = true;
@@ -90,7 +120,7 @@ public class JumpState : State<CharacterManager>
         {
             releaseJump = false;
 
-            if (rigidbody2D.velocity.y > 0)
+            if (!isFalling)
             {
                 ReduceJumpVelocity();
             }
@@ -104,15 +134,13 @@ public class JumpState : State<CharacterManager>
         {
             inHangTime = false;
 
-            if (rigidbody2D.velocity.y < 0)
+            if (isFalling)
             {
                 IncreaseFallingGravityScale();
                 ClampFallSpeed();
             }
         }
-
         //Debug.Log($"Is JumpRemember greater than 0: {jumpRemember > 0}");
-        jumpRemember -= Time.deltaTime;
         //Debug.Log($"JumpRemember: {jumpRemember}");
 
     }
@@ -172,6 +200,10 @@ public class JumpState : State<CharacterManager>
             {
                 runner.SetState(typeof(WalkState));
             }
+        }
+        else if (isFalling && groundCheck.IsFacingLedge() && playerGeneral.ledgeGrabTimer <= 0)
+        {
+            runner.SetState(typeof(LedgeHold));
         }
     }
 
