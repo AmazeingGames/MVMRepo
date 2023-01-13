@@ -7,10 +7,6 @@ using UnityEngine;
 public class LedgeHold : State<CharacterManager>
 {
     [SerializeField] Vector3 hangPositionOffset;
-    [SerializeField] float timeBetweenLedgeGrabs;
-
-    public Action droppedFromLedge;
-    public float TimerBetweenGrabs { get; set; }
 
     float moveInput;
     bool shouldClimb;
@@ -32,8 +28,6 @@ public class LedgeHold : State<CharacterManager>
         if(transform == null)
             transform = parent.transform;
 
-
-        TimerBetweenGrabs = 0;
 
         animator.CrossFade(PlayerGeneral.LedgeHang, 0);
 

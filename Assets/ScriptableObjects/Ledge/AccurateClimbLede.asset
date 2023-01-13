@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6545a46b0e3857943910ee3b546eb496, type: 3}
-  m_Name: LedgeHold
+  m_Script: {fileID: 11500000, guid: 2f74d8f9e9f6a8d43ba15c68641d6ee1, type: 3}
+  m_Name: AccurateClimbLede
   m_EditorClassIdentifier: 
-  hangPositionOffset: {x: 0, y: 0, z: 0}
-  timeBetweenLedgeGrabs: 0
+  ledgeClimbXOffsetStart: 0
+  ledgeClimbYOffsetStart: 0
+  ledgeClimbXOffsetEnd: 0
+  ledgeClimbYOffsetEnd: 0

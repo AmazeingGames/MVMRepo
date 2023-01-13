@@ -37,11 +37,12 @@ public class PlayerGeneral : MonoBehaviour
     {
         ledgeGrabTimer -= Time.deltaTime;
 
+        //Move this into states themself to avoid any unwanted flippage
         if ((IsFacingRight && transform.localScale.x < 0) || !IsFacingRight && transform.localScale.x > 0)
         {
             transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         }
-
+        
         if (lastState.GetType() != characterManager.CurrentState.GetType())
         {
             if (lastState.GetType() == typeof(LedgeHold) && characterManager.CurrentState.GetType() == typeof(WalkState))
@@ -57,7 +58,7 @@ public class PlayerGeneral : MonoBehaviour
             ledgeGrabTimer = 0;
         }
 
-        Debug.Log($"is LedgeGrabTimer greater than 0 : {ledgeGrabTimer > 0}");
+        //Debug.Log($"is LedgeGrabTimer greater than 0 : {ledgeGrabTimer > 0}");
 
     }
 

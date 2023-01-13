@@ -58,7 +58,6 @@ public class LedgeClimb : State<CharacterManager>
         animator.CrossFade(PlayerGeneral.Jump, 0);
 
         ledgeClimbLength = animator.GetCurrentAnimatorStateInfo(0).length;
-        
     }
 
     public override void CaptureInput()

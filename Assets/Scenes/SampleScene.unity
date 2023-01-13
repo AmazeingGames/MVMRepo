@@ -601,6 +601,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 7128032414694758545, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: m_TagString
+      value: headRaycast
+      objectReference: {fileID: 0}
     - target: {fileID: 7159990790429876081, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: states.Array.size
       value: 8
@@ -625,6 +629,10 @@ PrefabInstance:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 8061568153169087511, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: m_TagString
+      value: bodyRaycast
+      objectReference: {fileID: 0}
     - target: {fileID: 9170871116347733360, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: m_Name
       value: Player
@@ -796,7 +804,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0676982, y: 1}
+    m_SensorSize: {x: 2.0361905, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

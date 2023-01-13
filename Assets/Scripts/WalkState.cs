@@ -127,7 +127,7 @@ public class WalkState : State<CharacterManager>
             runner.SetState(typeof(EntryAttack));
         }
 
-        if (groundRemember <= 0 && groundCheck.IsFacingLedge() && playerGeneral.ledgeGrabTimer <= 0)
+        if (!groundCheck.IsGrounded() && groundCheck.IsFacingLedge() && playerGeneral.ledgeGrabTimer <= 0)
         {
             runner.SetState(typeof(LedgeHold));
         }
