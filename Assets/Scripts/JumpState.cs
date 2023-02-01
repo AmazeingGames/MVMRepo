@@ -66,6 +66,7 @@ public class JumpState : State<CharacterManager>
 
         var currentClipInfo = animator.GetCurrentAnimatorClipInfo(0);
 
+        // I don't remember what this does
         if (currentClipInfo != null && currentClipInfo.Length >= 1)
         {
             string currentClipName = currentClipInfo[0].clip.name;
@@ -196,6 +197,8 @@ public class JumpState : State<CharacterManager>
         {
             if (jumpRemember > 0)
             {
+                animator.Play(PlayerGeneral.Jump, -1, 0);
+
                 runner.SetState(typeof(JumpState));
             }
             else
