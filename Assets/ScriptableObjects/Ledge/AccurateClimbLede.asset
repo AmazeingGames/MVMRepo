@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f74d8f9e9f6a8d43ba15c68641d6ee1, type: 3}
   m_Name: AccurateClimbLede
   m_EditorClassIdentifier: 
-  ledgeClimbXOffsetStart: 0
-  ledgeClimbYOffsetStart: 0
-  ledgeClimbXOffsetEnd: 0
-  ledgeClimbYOffsetEnd: 0
+  ledgeClimbXOffsetStart: -1.2
+  ledgeClimbYOffsetStart: 1.7
+  ledgeClimbXOffsetEnd: 1.2
+  ledgeClimbYOffsetEnd: 1.7

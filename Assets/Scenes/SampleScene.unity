@@ -278,11 +278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334754942401854721, guid: 3fe055a9174253e43bf668ebff7d30d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0314
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8334754942401854721, guid: 3fe055a9174253e43bf668ebff7d30d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.0304527
+      value: -3.94
       objectReference: {fileID: 0}
     - target: {fileID: 8334754942401854721, guid: 3fe055a9174253e43bf668ebff7d30d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -597,6 +597,22 @@ PrefabInstance:
       propertyPath: ledgeRaycastHeadOrigin
       value: 
       objectReference: {fileID: 927820199}
+    - target: {fileID: 6851801492885154332, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: bodyRayCastNewYPosition
+      value: 2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851801492885154332, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: headRayCastNewYPosition
+      value: 2.651
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851801492885154332, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: bodyRayCastNewYPosition1
+      value: 2.359
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851801492885154332, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
+      propertyPath: headRayCastNewYPosition1
+      value: 2.881
+      objectReference: {fileID: 0}
     - target: {fileID: 7128032414694758545, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: m_Icon
       value: 
@@ -612,11 +628,11 @@ PrefabInstance:
     - target: {fileID: 7159990790429876081, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: states.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 4dfcef22663d52f45aca3b9a64534186, type: 2}
+      objectReference: {fileID: 11400000, guid: 3c2928dec94d1984faae3ba4ff75215c, type: 2}
     - target: {fileID: 7159990790429876081, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: states.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: d08feece62b56ca4ba2ecbe4e6de093b, type: 2}
+      objectReference: {fileID: 11400000, guid: 3818fca9531962d439032be9b9bdbc4c, type: 2}
     - target: {fileID: 7381823053520764483, guid: a6dd507fe9feb8641b7bd077c74fc287, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2

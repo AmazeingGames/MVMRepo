@@ -103,6 +103,8 @@ public class JumpState : State<CharacterManager>
     }
     public override void Update()
     {
+        playerGeneral.FlipCharacterCheck();
+
         jumpRemember -= Time.deltaTime;
 
         if (!groundCheck.IsGrounded())

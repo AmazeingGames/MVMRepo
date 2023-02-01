@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6545a46b0e3857943910ee3b546eb496, type: 3}
   m_Name: AccurateHoldLedge
   m_EditorClassIdentifier: 
-  hangPositionOffset: {x: 0, y: 0, z: 0}
+  hangPositionOffset: {x: 0, y: -1, z: 0}

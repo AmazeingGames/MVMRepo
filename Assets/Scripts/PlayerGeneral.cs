@@ -36,12 +36,6 @@ public class PlayerGeneral : MonoBehaviour
     private void Update()
     {
         ledgeGrabTimer -= Time.deltaTime;
-
-        //Move this into states themself to avoid any unwanted flippage
-        if ((IsFacingRight && transform.localScale.x < 0) || !IsFacingRight && transform.localScale.x > 0)
-        {
-            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
-        }
         
         if (lastState.GetType() != characterManager.CurrentState.GetType())
         {
@@ -64,6 +58,10 @@ public class PlayerGeneral : MonoBehaviour
 
     void FixedUpdate()
     {
+    }
+
+    public void FlipCharacterCheck()
+    {
         if (Input.GetAxisRaw("Horizontal") > 0 && rigidBody2D.velocity.x >= 0)
         {
             IsFacingRight = true;
@@ -72,6 +70,11 @@ public class PlayerGeneral : MonoBehaviour
         if (Input.GetAxisRaw("Horizontal") < 0 && rigidBody2D.velocity.x <= 0)
         {
             IsFacingRight = false;
+        }
+
+        if ((IsFacingRight && transform.localScale.x < 0) || !IsFacingRight && transform.localScale.x > 0)
+        {
+            transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         }
     }
 }

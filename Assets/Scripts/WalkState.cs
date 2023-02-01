@@ -58,6 +58,8 @@ public class WalkState : State<CharacterManager>
         jumpRemember -= Time.deltaTime;
         groundRemember -= Time.deltaTime;
 
+        playerGeneral.FlipCharacterCheck();
+
         if (groundCheck.IsGrounded())
         {
             groundRemember = groundRememberTime;
@@ -76,6 +78,7 @@ public class WalkState : State<CharacterManager>
         {
             animator.CrossFade(PlayerGeneral.Jump, 0);
         }
+
 
         if (pressedJump)
         {
